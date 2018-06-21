@@ -13,6 +13,8 @@
 		495B781620DBC65B00D0B1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B781420DBC65B00D0B1E9 /* Main.storyboard */; };
 		495B781820DBC65C00D0B1E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495B781720DBC65C00D0B1E9 /* Assets.xcassets */; };
 		495B781B20DBC65C00D0B1E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B781920DBC65C00D0B1E9 /* LaunchScreen.storyboard */; };
+		495B782420DBC85300D0B1E9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495B782320DBC85300D0B1E9 /* Alamofire.framework */; };
+		495B782620DBC9F000D0B1E9 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B782520DBC9F000D0B1E9 /* VideoLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		495B781720DBC65C00D0B1E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		495B781A20DBC65C00D0B1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		495B781C20DBC65C00D0B1E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495B782320DBC85300D0B1E9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		495B782520DBC9F000D0B1E9 /* VideoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLibrary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495B782420DBC85300D0B1E9 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,7 @@
 		495B780220DBC65B00D0B1E9 = {
 			isa = PBXGroup;
 			children = (
+				495B782320DBC85300D0B1E9 /* Alamofire.framework */,
 				495B780D20DBC65B00D0B1E9 /* iOSVideoLibrary */,
 				495B780C20DBC65B00D0B1E9 /* Products */,
 			);
@@ -63,6 +69,7 @@
 				495B781720DBC65C00D0B1E9 /* Assets.xcassets */,
 				495B781920DBC65C00D0B1E9 /* LaunchScreen.storyboard */,
 				495B781C20DBC65C00D0B1E9 /* Info.plist */,
+				495B782520DBC9F000D0B1E9 /* VideoLibrary.swift */,
 			);
 			path = iOSVideoLibrary;
 			sourceTree = "<group>";
@@ -77,6 +84,7 @@
 				495B780720DBC65B00D0B1E9 /* Sources */,
 				495B780820DBC65B00D0B1E9 /* Frameworks */,
 				495B780920DBC65B00D0B1E9 /* Resources */,
+				495B782220DBC6B300D0B1E9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -133,12 +141,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		495B782220DBC6B300D0B1E9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		495B780720DBC65B00D0B1E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				495B781320DBC65B00D0B1E9 /* SecondViewController.swift in Sources */,
+				495B782620DBC9F000D0B1E9 /* VideoLibrary.swift in Sources */,
 				495B780F20DBC65B00D0B1E9 /* AppDelegate.swift in Sources */,
 				495B781120DBC65B00D0B1E9 /* FirstViewController.swift in Sources */,
 			);
@@ -286,12 +313,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H64UU5B675;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iOSVideoLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = coffee.rory.iOSVideoLibrary;
+				PRODUCT_BUNDLE_IDENTIFIER = coffee.rory.ios.VideoLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,12 +335,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H64UU5B675;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iOSVideoLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = coffee.rory.iOSVideoLibrary;
+				PRODUCT_BUNDLE_IDENTIFIER = coffee.rory.ios.VideoLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
