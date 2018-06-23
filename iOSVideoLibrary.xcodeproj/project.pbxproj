@@ -15,6 +15,7 @@
 		495B781B20DBC65C00D0B1E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B781920DBC65C00D0B1E9 /* LaunchScreen.storyboard */; };
 		495B782420DBC85300D0B1E9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495B782320DBC85300D0B1E9 /* Alamofire.framework */; };
 		495B782620DBC9F000D0B1E9 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B782520DBC9F000D0B1E9 /* VideoLibrary.swift */; };
+		495B782820DD1A2D00D0B1E9 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495B782720DD1A2D00D0B1E9 /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		495B781C20DBC65C00D0B1E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		495B782320DBC85300D0B1E9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		495B782520DBC9F000D0B1E9 /* VideoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLibrary.swift; sourceTree = "<group>"; };
+		495B782720DD1A2D00D0B1E9 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495B782420DBC85300D0B1E9 /* Alamofire.framework in Frameworks */,
+				495B782820DD1A2D00D0B1E9 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +48,7 @@
 		495B780220DBC65B00D0B1E9 = {
 			isa = PBXGroup;
 			children = (
+				495B782720DD1A2D00D0B1E9 /* PromiseKit.framework */,
 				495B782320DBC85300D0B1E9 /* Alamofire.framework */,
 				495B780D20DBC65B00D0B1E9 /* iOSVideoLibrary */,
 				495B780C20DBC65B00D0B1E9 /* Products */,
@@ -149,9 +153,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/build/iOS/PromiseKit.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

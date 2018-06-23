@@ -56,6 +56,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         VideoLibrary.shared.listVideos{videoCategories in
             NSLog("Loaded videos \(videoCategories)")
             self.videoCategories = videoCategories
+            VideoLibrary.shared.syncVideos(videoCategories: videoCategories)
             self.collectionView.reloadData()
         }
     }
