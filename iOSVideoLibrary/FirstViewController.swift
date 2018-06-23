@@ -53,10 +53,18 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        VideoLibrary.shared.listVideos{videoCategories in
+        VideoLibrary.shared.listVideos().map{videoCategories in
             NSLog("Loaded videos \(videoCategories)")
             self.videoCategories = videoCategories
+            
+            
+            return videoCategories
+        }
+        .then{ videoCategories in
             VideoLibrary.shared.syncVideos(videoCategories: videoCategories)
+        }
+        .done{ _ in
+            NSLog("Videos synced...refreshing view")
             self.collectionView.reloadData()
         }
     }

@@ -45,7 +45,7 @@ class VideoLibrary: NSObject {
         return docsPath.appendingPathComponent(videoId + ".mp4")
     }
     
-    private func videoIsCached(videoId: String) -> Bool {
+    func videoIsCached(videoId: String) -> Bool {
         let downloadPath = getDownloadPath(videoId: videoId).relativePath
         let exists = filemgr.isReadableFile(atPath: downloadPath)
         do {
@@ -113,14 +113,16 @@ class VideoLibrary: NSObject {
         }
     }
     
-    func listVideos(completionHandler: @escaping (VideoCategories) -> Void) {
+    func listVideos() -> Promise<VideoCategories> {
         let url = "\(baseUrl)/\(deploymentType)/videos"
-        Alamofire.request(url).responseJSON{ json in
-            let videoCategories = (json.result.value as! [String: [String: [[String: String]]]])["videos"]!
-            
-            completionHandler(VideoCategories(
-                youtube: self.extractVideo(entries: videoCategories["youtube"]!)
-            ))
+        return Promise<VideoCategories> { seal in
+            Alamofire.request(url).responseJSON{ json in
+                let videoCategories = (json.result.value as! [String: [String: [[String: String]]]])["videos"]!
+                
+                seal.resolve(VideoCategories(
+                    youtube: self.extractVideo(entries: videoCategories["youtube"]!)
+                ), nil)
+            }
         }
     }
     
