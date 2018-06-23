@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AVKit
 
 class VideoPreviewCell: UICollectionViewCell {
     @IBOutlet weak var thumbnail: UIImageView!
@@ -47,6 +48,19 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
         NSLog("Returning cell \(cell) for \(indexPath)")
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if(indexPath.section == 0) {
+            let video = self.videoCategories?.youtube[indexPath.row]
+            let url = VideoLibrary.shared.getDownloadPath(videoId: video!.videoId)
+            let player = AVPlayer(url: url)
+            let controller = AVPlayerViewController()
+            controller.player = player
+            present(controller, animated: true) {
+                player.play()
+            }
+        }
     }
     
     override func viewDidLoad() {

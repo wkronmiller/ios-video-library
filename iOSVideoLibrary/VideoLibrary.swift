@@ -41,7 +41,7 @@ class VideoLibrary: NSObject {
     private let filemgr = FileManager.default
     private let docsPath: URL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
     
-    private func getDownloadPath(videoId: String) -> URL {
+    func getDownloadPath(videoId: String) -> URL {
         return docsPath.appendingPathComponent(videoId + ".mp4")
     }
     
