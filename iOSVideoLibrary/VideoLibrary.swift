@@ -69,7 +69,11 @@ class VideoLibrary: NSObject {
                 })
                 .response { response in
                     NSLog("Completed download, error: \(response.error)")
-                    seal.resolve(response.destinationURL!.absoluteString, nil)
+                    if let error = response.error {
+                        seal.reject(error)
+                    } else {
+                        seal.resolve(response.destinationURL!.absoluteString, nil)
+                    }
                 }
         }
     }
@@ -100,9 +104,8 @@ class VideoLibrary: NSObject {
         }
     }
     
-    func syncVideos(videoCategories: VideoCategories) -> Promise<Void> { //TODO
-        assert(videoCategories.numCategories == 1) //NOTE: must update when adding categories
-        let toDownload = videoCategories.youtube.filter{ video in
+    func syncVideos(videos: [VideoOverview]) -> Promise<Void> {
+        let toDownload = videos.filter{ video in
             return video.isDownloaded == false
         }
         let downloadPromises = toDownload
@@ -111,6 +114,12 @@ class VideoLibrary: NSObject {
         return when(resolved: downloadPromises).done { urls in
             NSLog("Downloaded videos to urls \(urls)")
         }
+    }
+    
+    func syncVideos(videoCategories: VideoCategories) -> Promise<Void> {
+        assert(videoCategories.numCategories == 1) //NOTE: must update when adding categories
+        let videos = videoCategories.youtube
+        return syncVideos(videos: videos)
     }
     
     func listVideos() -> Promise<VideoCategories> {

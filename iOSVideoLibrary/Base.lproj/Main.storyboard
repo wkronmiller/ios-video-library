@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTv-LO-DgH">
-                                <rect key="frame" x="16" y="46" width="343" height="560"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTv-LO-DgH">
+                                <rect key="frame" x="16" y="46" width="343" height="522"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vOI-rc-iz8">
                                     <size key="itemSize" width="140" height="131"/>
@@ -36,19 +36,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-wU-4sE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-wU-4sE">
                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="108"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LS-BT-O6R">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LS-BT-O6R">
                                                     <rect key="frame" x="0.0" y="110" width="140" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="hTN-Ow-92Y"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="YCi-wU-4sE" firstAttribute="trailing" secondItem="7LS-BT-O6R" secondAttribute="trailing" id="AP9-co-UG3"/>
+                                            <constraint firstItem="7LS-BT-O6R" firstAttribute="top" secondItem="YCi-wU-4sE" secondAttribute="bottom" constant="2" id="EhT-6A-ZKH"/>
+                                            <constraint firstAttribute="bottom" secondItem="7LS-BT-O6R" secondAttribute="bottom" id="KJO-Hl-kIO"/>
+                                            <constraint firstItem="YCi-wU-4sE" firstAttribute="leading" secondItem="7LS-BT-O6R" secondAttribute="leading" id="P96-F1-DL7"/>
+                                            <constraint firstItem="YCi-wU-4sE" firstAttribute="leading" secondItem="UzN-If-rlH" secondAttribute="leading" id="PCk-vn-Vyz"/>
+                                            <constraint firstItem="YCi-wU-4sE" firstAttribute="top" secondItem="UzN-If-rlH" secondAttribute="top" id="f59-2a-JGa"/>
+                                            <constraint firstAttribute="trailing" secondItem="YCi-wU-4sE" secondAttribute="trailing" id="rTh-0L-CDW"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="thumbnail" destination="YCi-wU-4sE" id="hzQ-ON-PIl"/>
                                             <outlet property="title" destination="7LS-BT-O6R" id="Kcs-T7-3rW"/>
@@ -56,13 +66,35 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNa-9l-U1D">
+                                <rect key="frame" x="170" y="576" width="34" height="30"/>
+                                <state key="normal" title="Sync"/>
+                                <connections>
+                                    <action selector="syncButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4wL-ms-fl6"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oHO-PK-MpB">
+                                <rect key="frame" x="177" y="581" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cTv-LO-DgH" firstAttribute="centerX" secondItem="oHO-PK-MpB" secondAttribute="centerX" id="7mO-ca-L6I"/>
+                            <constraint firstItem="cTv-LO-DgH" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="DcB-3N-TrM"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="VNa-9l-U1D" secondAttribute="bottom" constant="12" id="SUD-6x-AUd"/>
+                            <constraint firstItem="cTv-LO-DgH" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ZsG-2E-kB4"/>
+                            <constraint firstItem="VNa-9l-U1D" firstAttribute="top" secondItem="cTv-LO-DgH" secondAttribute="bottom" constant="8" symbolic="YES" id="cs3-bO-Xft"/>
+                            <constraint firstItem="VNa-9l-U1D" firstAttribute="centerX" secondItem="oHO-PK-MpB" secondAttribute="centerX" id="kYm-5x-ETZ"/>
+                            <constraint firstItem="VNa-9l-U1D" firstAttribute="centerY" secondItem="oHO-PK-MpB" secondAttribute="centerY" id="x4s-Ma-rOq"/>
+                            <constraint firstItem="cTv-LO-DgH" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="26" id="yRJ-GN-b5s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="collectionView" destination="cTv-LO-DgH" id="s2M-d0-zoT"/>
+                        <outlet property="syncActivity" destination="oHO-PK-MpB" id="6h3-ca-fv0"/>
+                        <outlet property="syncButton" destination="VNa-9l-U1D" id="FLs-bL-tkP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
