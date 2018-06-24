@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Videos-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="iOSVideoLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Videos" id="9pv-A4-QxB" customClass="FirstViewController" customModule="iOSVideoLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,42 +23,32 @@
                                 <rect key="frame" x="16" y="46" width="343" height="522"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vOI-rc-iz8">
-                                    <size key="itemSize" width="140" height="131"/>
+                                    <size key="itemSize" width="159" height="151"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoPreview" id="UzN-If-rlH" customClass="VideoPreviewCell" customModule="iOSVideoLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="131"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="159" height="151"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="131"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="159" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-wU-4sE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="108"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-wU-4sE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="159" height="112"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LS-BT-O6R">
-                                                    <rect key="frame" x="0.0" y="110" width="140" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="hTN-Ow-92Y"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LS-BT-O6R">
+                                                    <rect key="frame" x="0.0" y="112" width="159" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="YCi-wU-4sE" firstAttribute="trailing" secondItem="7LS-BT-O6R" secondAttribute="trailing" id="AP9-co-UG3"/>
-                                            <constraint firstItem="7LS-BT-O6R" firstAttribute="top" secondItem="YCi-wU-4sE" secondAttribute="bottom" constant="2" id="EhT-6A-ZKH"/>
-                                            <constraint firstAttribute="bottom" secondItem="7LS-BT-O6R" secondAttribute="bottom" id="KJO-Hl-kIO"/>
-                                            <constraint firstItem="YCi-wU-4sE" firstAttribute="leading" secondItem="7LS-BT-O6R" secondAttribute="leading" id="P96-F1-DL7"/>
-                                            <constraint firstItem="YCi-wU-4sE" firstAttribute="leading" secondItem="UzN-If-rlH" secondAttribute="leading" id="PCk-vn-Vyz"/>
-                                            <constraint firstItem="YCi-wU-4sE" firstAttribute="top" secondItem="UzN-If-rlH" secondAttribute="top" id="f59-2a-JGa"/>
-                                            <constraint firstAttribute="trailing" secondItem="YCi-wU-4sE" secondAttribute="trailing" id="rTh-0L-CDW"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="thumbnail" destination="YCi-wU-4sE" id="hzQ-ON-PIl"/>
                                             <outlet property="title" destination="7LS-BT-O6R" id="Kcs-T7-3rW"/>
@@ -90,7 +80,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Videos" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="collectionView" destination="cTv-LO-DgH" id="s2M-d0-zoT"/>
                         <outlet property="syncActivity" destination="oHO-PK-MpB" id="6h3-ca-fv0"/>
