@@ -80,7 +80,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Videos" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="All" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="collectionView" destination="cTv-LO-DgH" id="s2M-d0-zoT"/>
                         <outlet property="syncActivity" destination="oHO-PK-MpB" id="6h3-ca-fv0"/>
@@ -90,6 +90,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+        </scene>
+        <!--Downloaded-->
+        <scene sceneID="AYm-ba-I2N">
+            <objects>
+                <collectionViewController id="MkL-Ia-E47" customClass="DownloadedVideosViewController" customModule="iOSVideoLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="60v-H9-nPh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4i5-GY-Lhf">
+                            <size key="itemSize" width="159" height="151"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoPreview" id="dZ0-xd-4Od" customClass="VideoPreviewCell" customModule="iOSVideoLibrary" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="159" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="159" height="151"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSG-fP-VlJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="159" height="112"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nS-Y1-4Io">
+                                            <rect key="frame" x="0.0" y="112" width="159" height="39"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="thumbnail" destination="rSG-fP-VlJ" id="KmQ-hQ-ZHz"/>
+                                    <outlet property="title" destination="7nS-Y1-4Io" id="3SZ-Wv-450"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="MkL-Ia-E47" id="2p6-CA-ePE"/>
+                            <outlet property="delegate" destination="MkL-Ia-E47" id="ENJ-Qq-6uG"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Downloaded" image="first" id="CsH-es-lrO"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvo-f5-z7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464.8" y="-321.58920539730138"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -102,6 +154,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="MkL-Ia-E47" kind="relationship" relationship="viewControllers" id="joX-q8-ITK"/>
                         <segue destination="ITz-bw-dhf" kind="relationship" relationship="viewControllers" id="Ra0-JN-vqT"/>
                     </connections>
                 </tabBarController>
@@ -109,7 +162,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Suggestions-->
+        <!--Suggested-->
         <scene sceneID="W6q-Tv-dgc">
             <objects>
                 <collectionViewController id="ITz-bw-dhf" customClass="SuggestionsViewController" customModule="iOSVideoLibrary" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,7 +197,7 @@
                             <outlet property="delegate" destination="ITz-bw-dhf" id="mVC-d1-xmo"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Suggestions" image="first" id="Yza-1Z-50p"/>
+                    <tabBarItem key="tabBarItem" title="Suggested" image="first" id="Yza-1Z-50p"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EV5-dL-YxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

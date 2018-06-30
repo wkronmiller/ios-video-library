@@ -177,7 +177,7 @@ class VideoLibrary: NSObject {
         return downloadVideoImage(videoOverview: videoOverview).map { data in
             if let image = UIImage(data: data) {
                 let writeResult = try? data.write(to: self.getThumbnailPath(videoOverview: videoOverview))
-                NSLog("Cached thumbnail \(writeResult)")
+                NSLog("Cached thumbnail \(String(describing: writeResult))")
                 return self.transformImage(videoOverview: videoOverview, image: image)
             } else {
                 throw FileLoadError.imageInvalid
