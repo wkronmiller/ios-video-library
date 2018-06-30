@@ -14,35 +14,11 @@ class VideoPreviewCell: UICollectionViewCell {
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var title: UILabel!
     
-    private let context = CIContext(options: nil)
-    
-    private func recolorImage(image: UIImage, name: String) -> UIImage {
-        let filter = CIFilter(name: name)
-        filter!.setValue(CIImage(image: image), forKey: kCIInputImageKey)
-        let outImage = filter!.outputImage
-        let cgImage = context.createCGImage(outImage!, from: outImage!.extent)
-        let processedImage = UIImage(cgImage: cgImage!)
-        return processedImage
-    }
-    
-    private func mkGrayscale(image: UIImage) -> UIImage {
-        return recolorImage(image: image, name: "CIPhotoEffectNoir")
-    }
-    
     func displayContent(videoOverview: VideoOverview) {
         self.title.text = videoOverview.title
-        
-        let cached = VideoLibrary.shared.videoIsCached(videoId: videoOverview.videoId)
-        
-        Alamofire.request(videoOverview.thumbnailUrl).responseData{image in
+        VideoLibrary.shared.getVideoThumbnail(videoOverview: videoOverview).done{ image in
             DispatchQueue.main.async {
-                let image = UIImage(data: image.data!)!
-                if(cached) {
-                    self.thumbnail.image = image
-                } else {
-                    self.thumbnail.image = self.mkGrayscale(image: image)
-                }
-                
+                self.thumbnail.image = image
             }
         }
     }
@@ -99,8 +75,8 @@ class VideoLibraryViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
-    @objc private func updateVideoList() {
-        VideoLibrary.shared.listVideos().done{videoCategories in
+    @objc private func updateVideoList(refresh: Bool = true) {
+        VideoLibrary.shared.listVideos(refresh: refresh).done{videoCategories in
             NSLog("Loaded videos \(videoCategories)")
             self.videoCategories = videoCategories
             self.collectionView.reloadData()
@@ -117,14 +93,14 @@ class VideoLibraryViewController: UIViewController, UICollectionViewDelegate, UI
         self.collectionView.dataSource = self
         self.refreshControl.addTarget(self, action: #selector(updateVideoList), for: .valueChanged)
         self.collectionView.addSubview(refreshControl)
-        self.updateVideoList()
+        self.updateVideoList(refresh: false)
     }
     
     @IBAction func syncButtonPressed(_ sender: Any) {
         self.syncButton.isHidden = true
         self.syncActivity.startAnimating()
         
-        VideoLibrary.shared.listVideos().map{videoCategories in
+        VideoLibrary.shared.listVideos(refresh: true).map{videoCategories in
             NSLog("Loaded videos \(videoCategories)")
             self.videoCategories = videoCategories
             return videoCategories
