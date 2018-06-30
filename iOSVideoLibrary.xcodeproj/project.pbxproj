@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4923D55220DFDDCB004879B9 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4923D55120DFDDCB004879B9 /* SuggestionsViewController.swift */; };
 		495B780F20DBC65B00D0B1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B780E20DBC65B00D0B1E9 /* AppDelegate.swift */; };
-		495B781120DBC65B00D0B1E9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B781020DBC65B00D0B1E9 /* FirstViewController.swift */; };
+		495B781120DBC65B00D0B1E9 /* VideoLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B781020DBC65B00D0B1E9 /* VideoLibraryViewController.swift */; };
 		495B781620DBC65B00D0B1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B781420DBC65B00D0B1E9 /* Main.storyboard */; };
 		495B781820DBC65C00D0B1E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495B781720DBC65C00D0B1E9 /* Assets.xcassets */; };
 		495B781B20DBC65C00D0B1E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B781920DBC65C00D0B1E9 /* LaunchScreen.storyboard */; };
@@ -18,9 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4923D55120DFDDCB004879B9 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
 		495B780B20DBC65B00D0B1E9 /* iOSVideoLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSVideoLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495B780E20DBC65B00D0B1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		495B781020DBC65B00D0B1E9 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		495B781020DBC65B00D0B1E9 /* VideoLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLibraryViewController.swift; sourceTree = "<group>"; };
 		495B781520DBC65B00D0B1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		495B781720DBC65C00D0B1E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		495B781A20DBC65C00D0B1E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,12 +67,13 @@
 			isa = PBXGroup;
 			children = (
 				495B780E20DBC65B00D0B1E9 /* AppDelegate.swift */,
-				495B781020DBC65B00D0B1E9 /* FirstViewController.swift */,
+				495B781020DBC65B00D0B1E9 /* VideoLibraryViewController.swift */,
 				495B781420DBC65B00D0B1E9 /* Main.storyboard */,
 				495B781720DBC65C00D0B1E9 /* Assets.xcassets */,
 				495B781920DBC65C00D0B1E9 /* LaunchScreen.storyboard */,
 				495B781C20DBC65C00D0B1E9 /* Info.plist */,
 				495B782520DBC9F000D0B1E9 /* VideoLibrary.swift */,
+				4923D55120DFDDCB004879B9 /* SuggestionsViewController.swift */,
 			);
 			path = iOSVideoLibrary;
 			sourceTree = "<group>";
@@ -172,9 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4923D55220DFDDCB004879B9 /* SuggestionsViewController.swift in Sources */,
 				495B782620DBC9F000D0B1E9 /* VideoLibrary.swift in Sources */,
 				495B780F20DBC65B00D0B1E9 /* AppDelegate.swift in Sources */,
-				495B781120DBC65B00D0B1E9 /* FirstViewController.swift in Sources */,
+				495B781120DBC65B00D0B1E9 /* VideoLibraryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

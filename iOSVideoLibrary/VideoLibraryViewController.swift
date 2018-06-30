@@ -48,7 +48,7 @@ class VideoPreviewCell: UICollectionViewCell {
     }
 }
 
-class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class VideoLibraryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var syncButton: UIButton!

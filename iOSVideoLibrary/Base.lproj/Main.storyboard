@@ -14,7 +14,7 @@
         <!--Videos-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController title="Videos" id="9pv-A4-QxB" customClass="FirstViewController" customModule="iOSVideoLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Videos" id="9pv-A4-QxB" customClass="VideoLibraryViewController" customModule="iOSVideoLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,11 +102,53 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="ITz-bw-dhf" kind="relationship" relationship="viewControllers" id="Ra0-JN-vqT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Suggestions-->
+        <scene sceneID="W6q-Tv-dgc">
+            <objects>
+                <collectionViewController id="ITz-bw-dhf" customClass="SuggestionsViewController" customModule="iOSVideoLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="PZK-ul-smr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U4T-tm-RYW">
+                            <size key="itemSize" width="166" height="194"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="videoPreview" reuseIdentifier="videoPreview" id="Rv8-RN-Gki">
+                                <rect key="frame" x="0.0" y="0.0" width="166" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="166" height="194"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-fa-vzJ">
+                                            <rect key="frame" x="10" y="0.0" width="146" height="132"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ITz-bw-dhf" id="LRf-iH-1vc"/>
+                            <outlet property="delegate" destination="ITz-bw-dhf" id="mVC-d1-xmo"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Suggestions" image="first" id="Yza-1Z-50p"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EV5-dL-YxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792.79999999999995" y="356.67166416791605"/>
         </scene>
     </scenes>
     <resources>
